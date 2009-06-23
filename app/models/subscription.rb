@@ -8,7 +8,7 @@ class Subscription < ActiveRecord::Base
   validates_numericality_of :price
   
   def refundable?
-    orders.first.refundable?
+    orders.first.andand.refundable?
   end
   
   def refunded?
@@ -48,6 +48,8 @@ class Subscription < ActiveRecord::Base
       self.expires_at += 1.month
       
       save!
+      
+      orders.reload
       
       order
     end

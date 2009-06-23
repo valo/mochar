@@ -47,6 +47,8 @@ describe Subscription do
       order = Order.create!(@order_attrs)
       order.order_items.create :product => subs
       
+      subs.reload
+      
       Time.stubs(:now => 29.days.from_now)
       
       subs.should be_refundable
@@ -85,7 +87,7 @@ describe Subscription do
       subs.refund!
       
       # It should refund all the orders assigned to the subscription
-      subs.should be_refundable
+      subs.should_not be_refundable
       subs.should have(2).orders
       subs.orders.each do |order|
         order.should be_refunded

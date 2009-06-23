@@ -29,10 +29,6 @@ class Order < ActiveRecord::Base
   def refund!
     raise ArgumentError, "Cannot refund an order which is not refundable!" unless refundable?
     
-    Order.transaction do
-      self.refunded = true
-      
-      save!
-    end
+    update_attributes!(:refunded => true)
   end
 end
