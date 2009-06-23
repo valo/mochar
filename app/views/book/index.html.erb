@@ -1,0 +1,18 @@
+<% content_for :main_menu do %>
+<%= render :partial => 'main_menu' %>
+<% end %>
+
+<h1>Bookshelf</h1>
+<% if !@books.blank? %>
+  <% for book in @books %>
+    <div class="book">
+      <h2><%= book.title %></h2>
+      <span class="book_author">by <%= book.author %></span>
+      <p><%= book.description %></p>
+      <p>Price: <%= book.price_in_dollars %></p>
+      <p><%= link_to "Add to cart", :action => "add_to_cart", :id => book.id %></p>
+    </div>
+  <% end %>
+<% else %>
+  No books available
+<% end %>

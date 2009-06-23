@@ -1,0 +1,27 @@
+<h1>Register</h1>
+<%= error_messages_for :user %>
+<% form_for :user, :url => { :action => :do_register } do |f| -%>
+  <p>
+    <%= f.label :username, "Username:" %>
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :email, "Email:" %>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :real_name, "Real Name:" %>
+    <%= f.text_field :real_name %>
+  </p>
+  <p>
+    <%= f.label :password, "Password:" %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation, "Password Confirmation:" %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.submit "Register", :disable_with => 'Registering...' %>
+  </p>
+<% end -%>

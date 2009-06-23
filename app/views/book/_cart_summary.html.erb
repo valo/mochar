@@ -1,0 +1,23 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Quantity</th>
+    <th>Price per item</th>
+    <th>Total price</th>
+  </tr>
+  <% for item in cart %>
+    <tr>
+      <td><%= item[0].title %></td>
+      <td><%= item[1] %></td>
+      <td><%= item[0].price_in_dollars %></td>
+      <td>$<%= item[1] * item[0].price %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td colspan="4"><hr/></td>
+  </tr>
+  <tr>
+    <td colspan="3">Total:</td>
+    <td>$<%= cart.map { |item| item[1] * item[0].price }.sum %></td>
+  </tr>
+</table>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Test</title>
+    <%= stylesheet_link_tag :all, :cache => false %>
+    <%= javascript_include_tag :all, :cache => false %>
+  </head>
+  <body>
+    <div id="content">
+      <div id="main_menu">
+        <%= yield :main_menu %>
+      </div>
+      <div id="main_content">
+        <% if flash[:notice] %>
+          <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:error] %>
+          <div class="error"><%= flash[:error] %></div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

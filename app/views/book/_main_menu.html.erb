@@ -1,0 +1,21 @@
+<% skip_cart = false unless defined?(skip_cart) %>
+<h2>Main menu</h2>
+<ul>
+  <li><%= link_to "Home", :action => "index" %></li>
+  <% if get_logged_user %>
+    <li><%= link_to "My account", :action => "my_account" %></li>
+    <% unless get_logged_user.subscription %>
+      <li><%= link_to "Purchase subscription", :action => "purchase_subscription" %></li>
+    <% end %>
+  <% else %>
+    <li><%= link_to "Login", :controller => :user, :action => "login" %></li>
+  <% end %>
+  <li><%= link_to "Cart", :action => "cart" %></li>
+  <li><%= link_to "Logoff", :controller => :user, :action => "logoff" %></li>
+</ul>
+<% unless skip_cart %>
+<div class="mini_basket">
+  <p>Current items in cart:<br/><%= session[:cart].size %></p>
+  <p>Total price of the cart:<br/>$<%= session[:cart].map { |item_id| Book.find(item_id) }.sum(&:price) %></p>
+</div>
+<% end %>

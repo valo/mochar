@@ -1,0 +1,8 @@
+<h1>Edit book</h1>
+<%= error_messages_for :book %>
+<% form_for :book, :url => { :action => :do_edit_book, :id => @book.id } do |f| -%>
+  <%= render :partial => "book_form", :locals => { :f => f } %>
+  <p>
+    <%= f.submit "Edit", :disable_with => 'Editing...' %>
+  </p>
+<% end -%>

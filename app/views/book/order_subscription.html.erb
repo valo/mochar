@@ -1,0 +1,26 @@
+<h1>Order subscription</h1>
+<%= render :partial => "cart_summary", :locals => { :cart => [[Subscription.new(:price => BigDecimal('9.95')), 1]] } %>
+<h2>Billing info</h2>
+<% form_for :billing_info, :url => { :action => :do_order_subscription }, :html => { :class => "billing_form" } do |f| -%>
+  <p>  
+    <%= f.label :credit_card_number, "Credit Card Number:" %>
+    <%= f.text_field :credit_card_number %>
+  </p>
+  <p>
+    <%= f.label :credit_card_holder_name, "Credit Card Holder Name:" %>
+    <%= f.text_field :credit_card_holder_name %>
+  </p>
+  <p>
+    <%= f.label :verification_code, "Verification Code:" %>
+    <%= f.text_field :verification_code %>
+  </p>
+  <p>
+    <%= f.label :expiration_date, "Expiration Date:" %>
+    <%= f.date_select :expiration_date, :discard_day => true %>
+  </p>
+  <p>
+    <%= f.submit "Purchase", :disable_with => 'Purchasing...' %>
+  </p>
+<% end -%>
+
+<%= link_to "Cancel", :action => :index %>

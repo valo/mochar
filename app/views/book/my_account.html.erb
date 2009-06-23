@@ -1,0 +1,48 @@
+<% content_for :main_menu do %>
+<%= render :partial => 'main_menu' %>
+<% end %>
+<h1>My Account</h1>
+<% if @user.subscription %>
+  <p>
+    You have a renewing subscription for your site, which is going to autorenew on <%= @user.subscription.expires_at.to_s :short %>
+  </p>
+  <% if @user.subscription.refundable? %>
+    <p>Your subscription is still in refund period, so if you are not satisfied you can issue a <%= link_to "refund here", :action => "refund_subscription" %></p>
+  <% end %>
+<% end %>
+<h2>Change details</h2>
+<% form_for :user do |f| -%>
+  <p>
+    <%= f.label :email, "Email:" %>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :real_name, "Real Name:" %>
+    <%= f.text_field :real_name %>
+  </p>
+  <p>
+    <%= f.submit "Edit info", :disable_with => 'Editing info...' %>
+  </p>
+<% end -%>
+
+<h2>Order summary</h2>
+<% if !@user.orders.blank? %>
+<table>
+  <tr>
+    <th>Date placed</th>
+    <th>Type</th>
+    <th>Refunded</th>
+    <th>Total price</th>
+  </tr>
+  <% for order in @user.orders %>
+    <tr>
+      <td><%= order.created_at.to_s :short %></td>
+      <td><%= order.order_type %></td>
+      <td><%= order.refunded? %></td>
+      <td>$<%= order.total_price %></td>
+    </tr>
+  <% end %>
+</table>
+<% else %>
+  
+<% end %>

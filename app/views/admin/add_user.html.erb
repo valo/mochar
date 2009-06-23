@@ -1,0 +1,7 @@
+<h1>Add user</h1>
+<%= error_messages_for :user %>
+<% form_for :user, :url => { :action => :do_add_user }, :html => {:class => 'user_form'} do |f| -%>
+  <%= render :partial => 'user_form', :locals => { :f => f } %>
+  <%= f.submit "Add", :disable_with => 'Adding...' %>
+<% end -%>
+<%= link_to "Back to users", :action => :users %>

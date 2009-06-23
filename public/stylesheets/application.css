@@ -1,0 +1,131 @@
+body {
+  font-family: Arial;
+}
+
+p label {
+  float: left;
+  width: 6em;
+}
+
+.fieldWithErrors label {
+  float: left;
+  width: 6em;
+}
+
+.error {
+  color: red;
+  width: 400px;
+  border: 1px solid red;
+  padding: 7px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+
+.fieldWithErrors input {
+  border: 1px solid red;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 1px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+.bottom_menu {
+  list-style: none;
+  padding: 0;
+}
+
+.user_form p label{
+  float: left;
+  width: 12em;
+}
+
+.billing_form p label{
+  float: left;
+  width: 13em;
+}
+
+.billing_form p {
+  margin: 0.5em;
+}
+
+.book_author {
+  font-style: italic;
+}
+
+#content {
+  width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main_content {
+  width: 600px;
+  float: right;
+  margin-left: 20px;
+}
+
+#main_menu {
+  width: 200px;
+  float: left;
+}
+
+#main_menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.book {
+  width: 600px;
+}
+
+.book h2 {
+  font-size: 1.2em;
+}
+
+.promotion {
+   font-weight: bold;
+   font-style: italic;
+   font-size: 1.1em;
+}
+
+.notice {
+  color: green;
+  width: 400px;
+  border: 1px solid green;
+  padding: 7px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+td {
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}

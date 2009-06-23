@@ -1,0 +1,29 @@
+<h1>Users</h1>
+<% if !@users.blank? %>
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Real name</th>
+    <th>Is admin?</th>
+    <th>Actions</th>
+  </tr>
+  <% for user in @users %>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= user.real_name %></td>
+      <td><%= user.is_admin %></td>
+      <td>
+        <%= link_to "Edit", :action => :edit_user, :id => user.id %>
+        <%= link_to "Delete", { :action => :delete_user, :id => user.id }, :confirm => "Are you sure?" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<% else %>
+  No users available
+<% end %>
+
+<ul class="bottom_menu">
+  <li><%= link_to "Add new user", :action => :add_user %></li>
+  <li><%= link_to "Back to home", :action => :home %></li>
+</ul>

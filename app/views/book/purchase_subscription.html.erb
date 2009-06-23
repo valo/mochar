@@ -1,0 +1,12 @@
+<% content_for :main_menu do %>
+<%= render :partial => 'main_menu', :locals => { :skip_cart => true } %>
+<% end %>
+
+<h1>Purchase subscription</h1>
+<p>
+  You can read the books online for a fixed monthly fee. Money back guarantee in 30 days after the purchase!
+</p>
+<p>
+  <span class="promotion">Just now! Only for $9.95 you get unlimited online access to all the books in the store!</span>
+</p>
+<%= link_to "Order subscription", :action => "order_subscription" %>

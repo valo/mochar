@@ -1,0 +1,31 @@
+<h1>Books</h1>
+<% if !@books.blank? %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+  <% for book in @books %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.author %></td>
+      <td><%= book.price_in_dollars %></td>
+      <td>
+        <%= link_to "Edit", :action => "edit_book", :id => book.id %>
+        <%= link_to "Delete", { :action => "delete_book", :id => book.id }, :confirm => "Are you sure?" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<% else %>
+<p>
+  No books available
+</p>
+<% end %>
+
+<ul class="bottom_menu">
+  <li><%= link_to "Add new book", :action => "add_book" %></li>
+  <li><%= link_to "Back to home", :action => "home" %></li>
+</ul>

@@ -1,0 +1,12 @@
+<% content_for :main_menu do %>
+<%= render :partial => 'main_menu' %>
+<% end %>
+
+<h1>Cart</h1>
+<% if !@cart.blank? %>
+<%= render :partial => 'cart_summary', :locals => { :cart => @cart } %>
+<p><%= link_to "Empty cart", :action => :empty_cart %></p>
+<p><%= link_to "Proceed to Checkout", :action => :checkout %></p>
+<% else %>
+  No items in the cart!
+<% end %>
