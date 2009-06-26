@@ -1,3 +1,6 @@
+class PaymentError < StandardError
+end
+
 class CreditCardProcessor
   class << self
     def charge_for_order(order, billing_info)
